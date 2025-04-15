@@ -60,7 +60,7 @@ OPENAI_MODEL = os.environ.get("OPENAI_MODEL", "gpt-4o")
 flask_app = Flask(__name__)
 logging.basicConfig(level=logging.INFO)
 
-@app.route(f"/{TOKEN}", methods=["POST"])
+@flask_app.route(f"/{TOKEN}", methods=["POST"])
 def webhook():
     update = Update.de_json(request.get_json(force=True), app)
     app.update_queue.put_nowait(update)
