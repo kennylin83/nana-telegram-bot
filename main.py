@@ -129,5 +129,12 @@ def setup():
 
 # 本地執行
 if __name__ == "__main__":
-    init_db()
-    flask_app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
+    import requests
+
+    # 將 webhook 指向 Render 的網址
+    render_url = f"https://{os.environ.get('RENDER_EXTERNAL_HOSTNAME')}/{TOKEN}"
+    set_hook_url = f"https://api.telegram.org/bot{TOKEN}/setWebhook"
+    response = requests.post(set_hook_url, json={"url": render_url})
+
+    print("Webhook 註冊結果:", response.text)
+    flask_app.run(host="0.0.0.0", port=PORT)
