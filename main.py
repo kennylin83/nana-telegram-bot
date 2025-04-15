@@ -57,7 +57,7 @@ app.add_handler(CommandHandler("reset_memory", reset))
 app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, reply))
 
 # Webhook 入口
-@flask_app.route(f"/{TOKEN}", methods=["POST"])
+@flask_app.route("/7750963807:AAF8UQkU4reGlNuqwYMQEDk6Xe6fbGb6z0Y", methods=["POST"])
 def webhook():
     update = request.get_json(force=True)
     app.update_queue.put_nowait(Update.de_json(update, app.bot))
