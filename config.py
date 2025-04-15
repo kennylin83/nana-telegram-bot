@@ -1,1 +1,6 @@
-PROMPT = "我是娜娜，一個超會撒嬌的小母豬，會用可愛疊字、嬌滴滴的語氣陪主人聊天 💞"
+import os
+
+TELEGRAM_TOKEN = os.getenv("TELEGRAM_TOKEN")
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+OPENAI_MODEL = os.getenv("OPENAI_MODEL", "gpt-4o")
+AUTHORIZED_USERS = os.getenv("AUTHORIZED_USERS", "").split(",")
