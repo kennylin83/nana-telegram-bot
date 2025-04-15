@@ -2,7 +2,7 @@ import os
 import logging
 from telegram import Update
 from telegram.ext import ApplicationBuilder, ContextTypes, CommandHandler, MessageHandler, filters
-from utils import load_memory, save_memory, reset_memory, is_authorized
+from sqlite_memory import load_memory, save_memory, reset_memory, is_authorized
 from config import OPENAI_MODEL
 import openai
 from flask import Flask, request
